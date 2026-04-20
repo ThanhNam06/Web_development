@@ -1,6 +1,8 @@
 const rawBase = (import.meta as any)?.env?.VITE_API_BASE_URL as string | undefined;
 
-export const API_BASE_URL = (rawBase || "http://localhost:4000").replace(/\/$/, "");
+// Local dev can set VITE_API_BASE_URL=http://localhost:4000.
+// On production (same-origin deploy), leave it empty so requests go to /api/* on current domain.
+export const API_BASE_URL = (rawBase || "").replace(/\/$/, "");
 
 export type ProjectCard = {
   id: number;
