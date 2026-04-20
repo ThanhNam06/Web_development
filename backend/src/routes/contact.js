@@ -14,7 +14,8 @@ const leadSchema = z.object({
   message: z.string().min(10).max(4000),
 });
 
-const leadsFilePath = path.resolve(process.cwd(), "data", "leads.json");
+const runtimeDataRoot = process.env.DATA_DIR || path.resolve(process.cwd(), "data");
+const leadsFilePath = path.resolve(runtimeDataRoot, "leads.json");
 
 export const contactRouter = Router();
 

@@ -42,7 +42,8 @@ app.use((req, res) => {
 let bootstrapPromise = null;
 
 export async function bootstrapApp() {
-  const leadsPath = path.resolve(process.cwd(), "data", "leads.json");
+  const runtimeDataRoot = process.env.DATA_DIR || path.resolve(process.cwd(), "data");
+  const leadsPath = path.resolve(runtimeDataRoot, "leads.json");
   await ensureJsonFile(leadsPath, []);
 
   const supabaseStatus = await checkSupabaseConnection();

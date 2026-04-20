@@ -47,6 +47,10 @@ Backend đã hỗ trợ lưu lead lên Supabase với các mode:
 - `CONTACT_STORAGE_MODE=file`      -> chỉ lưu local file `data/leads.json`
 - `CONTACT_STORAGE_MODE=hybrid`    -> ưu tiên Supabase, lỗi thì fallback file
 
+Tuỳ chọn thêm:
+
+- `DATA_DIR` -> thư mục lưu fallback local (mặc định `./data`, trên serverless nên đặt `/tmp/devstudio`)
+
 Biến môi trường cần có:
 
 - `SUPABASE_URL`

@@ -4,7 +4,12 @@ import path from "node:path";
 export async function ensureJsonFile(filePath, defaultValue) {
   const absPath = path.resolve(filePath);
   const dir = path.dirname(absPath);
-  await fs.mkdir(dir, { recursive: true });
+
+  try {
+    await fs.mkdir(dir, { recursive: true });
+  } catch {
+    return absPath;
+  }
 
   try {
     await fs.access(absPath);
