@@ -8,11 +8,21 @@ import { Contact } from "./pages/Contact";
 import { NotFound } from "./pages/NotFound";
 import { Privacy } from "./pages/Privacy";
 import { Terms } from "./pages/Terms";
+import { SeoManager } from "./seo/SeoManager";
+
+function RootWithSeo() {
+  return (
+    <>
+      <SeoManager />
+      <Root />
+    </>
+  );
+}
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    Component: Root,
+    Component: RootWithSeo,
     children: [
       { index: true, Component: Home },
       { path: "about", Component: About },
