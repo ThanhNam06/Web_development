@@ -4,6 +4,7 @@ import { Router } from "express";
 import { z } from "zod";
 import { ensureJsonFile, readJsonFile, writeJsonFile } from "../lib/jsonStore.js";
 import { getSupabaseContext } from "../lib/supabase.js";
+import { notifyNewLead } from "../lib/contactNotifier.js";
 
 const leadSchema = z.object({
   name: z.string().min(2).max(120),
@@ -132,10 +133,12 @@ contactRouter.post("/", async (req, res) => {
 
   if (contactStorageMode === "file") {
     await insertLeadFile(lead);
+    const notifyResult = await notifyNewLead(lead);
     return res.status(201).json({
       message: "Gửi liên hệ thành công",
       leadId: lead.id,
       storage: "file",
+      notification: notifyResult.ok ? "sent" : notifyResult.skipped ? "skipped" : "failed",
     });
   }
 
@@ -149,28 +152,34 @@ contactRouter.post("/", async (req, res) => {
       });
     }
 
+    const notifyResult = await notifyNewLead(lead);
     return res.status(201).json({
       message: "Gửi liên hệ thành công",
       leadId: lead.id,
       storage: "supabase",
+      notification: notifyResult.ok ? "sent" : notifyResult.skipped ? "skipped" : "failed",
     });
   }
 
   const supabaseResult = await insertLeadSupabase(lead);
   if (supabaseResult.ok) {
+    const notifyResult = await notifyNewLead(lead);
     return res.status(201).json({
       message: "Gửi liên hệ thành công",
       leadId: lead.id,
       storage: "supabase",
+      notification: notifyResult.ok ? "sent" : notifyResult.skipped ? "skipped" : "failed",
     });
   }
 
   await insertLeadFile(lead);
+  const notifyResult = await notifyNewLead(lead);
   return res.status(201).json({
     message: "Gửi liên hệ thành công",
     leadId: lead.id,
     storage: "file-fallback",
     warning: readableSupabaseError(supabaseResult.error, supabaseResult.table, supabaseResult.reason),
+    notification: notifyResult.ok ? "sent" : notifyResult.skipped ? "skipped" : "failed",
   });
 });
 

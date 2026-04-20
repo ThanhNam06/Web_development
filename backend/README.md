@@ -12,6 +12,22 @@ Backend API cho frontend trong thư mục `/mnt/l/Development`.
 - `GET /api/meta` - thông tin thương hiệu/liên hệ
 - `GET /api/health` - health check
 
+## Tự động gửi thông báo lead mới qua email
+
+Khi khách gửi form liên hệ thành công, backend sẽ gửi email thông báo cho admin để chủ động liên hệ lại khách, không cần mở Supabase thủ công.
+
+Biến môi trường cần cấu hình thêm:
+
+- `RESEND_API_KEY`
+- `CONTACT_NOTIFY_FROM` (vd: `DevStudio <no-reply@devstudio.art>`)
+- `CONTACT_NOTIFY_TO` (1 email hoặc nhiều email ngăn cách bằng dấu phẩy)
+
+Phản hồi từ `POST /api/contact` sẽ có thêm trường `notification`:
+
+- `sent`    -> gửi thông báo thành công
+- `skipped` -> thiếu config thông báo
+- `failed`  -> có config nhưng gửi lỗi
+
 ## Chạy local
 
 ```bash
