@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.vite/
+.DS_Store
+
+# Env files
+.env
+.env.local
+.env.*.local
+backend/.env
+backend/data/leads.json
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
