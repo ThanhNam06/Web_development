@@ -4,7 +4,7 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "functions": {
-    "backend/src/serverless.js": {
+    "api/[...all].js": {
       "runtime": "@vercel/node@3.2.20",
       "maxDuration": 30
     }
@@ -12,7 +12,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/backend/src/serverless.js"
+      "destination": "/api/$1"
     },
     {
       "source": "/(.*)",
