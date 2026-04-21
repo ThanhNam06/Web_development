@@ -61,6 +61,8 @@ export function Footer() {
           <ul className="flex flex-col gap-4 text-sm text-white/60">
             <li><Link to="/about" className="hover:text-cyan-400 transition-colors">Giới thiệu</Link></li>
             <li><Link to="/projects" className="hover:text-cyan-400 transition-colors">Dự án</Link></li>
+            <li><Link to="/blog" className="hover:text-cyan-400 transition-colors">Blog</Link></li>
+            <li><Link to="/seo-plan-30-days" className="hover:text-cyan-400 transition-colors">Kế hoạch SEO 30 ngày</Link></li>
             <li><Link to="/contact" className="hover:text-cyan-400 transition-colors">Liên hệ</Link></li>
             <li><Link to="/" className="hover:text-cyan-400 transition-colors">Trang chủ</Link></li>
           </ul>

@@ -8,6 +8,9 @@ import { Contact } from "./pages/Contact";
 import { NotFound } from "./pages/NotFound";
 import { Privacy } from "./pages/Privacy";
 import { Terms } from "./pages/Terms";
+import { Blog } from "./pages/Blog";
+import { BlogDetail } from "./pages/BlogDetail";
+import { SeoPlan } from "./pages/SeoPlan";
 import { SeoManager } from "./seo/SeoManager";
 
 function RootWithSeo() {
@@ -29,6 +32,9 @@ export const router = createBrowserRouter([
       { path: "projects", Component: Projects },
       { path: "projects/:id", Component: ProjectDetail },
       { path: "contact", Component: Contact },
+      { path: "blog", Component: Blog },
+      { path: "blog/:slug", Component: BlogDetail },
+      { path: "seo-plan-30-days", Component: SeoPlan },
       { path: "privacy", Component: Privacy },
       { path: "terms", Component: Terms },
       { path: "*", Component: NotFound },

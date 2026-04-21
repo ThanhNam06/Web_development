@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router";
 import { applySeo, type JsonLdObject } from "./applySeo";
+import { blogPosts } from "../content/blogPosts";
 
 type SeoConfig = {
   title: string;
@@ -85,6 +86,22 @@ const SEO_BY_PATH: Record<string, SeoConfig> = {
       "liên hệ thiết kế website, báo giá làm web, tư vấn phần mềm theo yêu cầu, devstudio contact",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
   },
+  "/blog": {
+    title: "Blog SEO DEVSTUDIO | Kiến thức thiết kế website & phần mềm",
+    description:
+      "Blog DEVSTUDIO chia sẻ kiến thức SEO, thiết kế website, phát triển phần mềm và chiến lược tăng chuyển đổi cho doanh nghiệp.",
+    keywords:
+      "blog thiết kế website, blog seo doanh nghiệp, kiến thức phát triển phần mềm, devstudio blog",
+    image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=1200&q=80",
+  },
+  "/seo-plan-30-days": {
+    title: "Kế hoạch SEO 30 ngày đầu | DEVSTUDIO",
+    description:
+      "Kế hoạch content SEO 30 ngày đầu cho DEVSTUDIO với lịch xuất bản, slug, internal links và FAQ schema cho từng bài.",
+    keywords:
+      "kế hoạch seo 30 ngày, content plan seo, lịch đăng bài seo, devstudio seo plan",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+  },
   "/privacy": {
     title: "Chính sách bảo mật | DEVSTUDIO",
     description:
@@ -117,12 +134,75 @@ function getProjectSeo(pathname: string): SeoConfig | null {
   };
 }
 
+function getBlogSeo(pathname: string): SeoConfig | null {
+  if (!pathname.startsWith("/blog/")) return null;
+
+  const slug = pathname.replace("/blog/", "");
+  if (!slug) return null;
+
+  const post = blogPosts.find((item) => item.slug === slug);
+  if (!post) {
+    return {
+      title: "Blog | DEVSTUDIO",
+      description: "Nội dung chia sẻ về thiết kế website, SEO và phát triển phần mềm cho doanh nghiệp.",
+      keywords: "blog devstudio, blog seo, thiết kế website",
+      noindex: true,
+    };
+  }
+
+  const articleSchema: JsonLdObject = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.metaDescription,
+    datePublished: `2026-04-${String(post.publishedDay).padStart(2, "0")}`,
+    dateModified: new Date().toISOString(),
+    author: {
+      "@type": "Organization",
+      name: "DEVSTUDIO",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "DEVSTUDIO",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://devstudio.art/blog/${post.slug}`,
+    },
+    inLanguage: "vi-VN",
+  };
+
+  const faqSchema = post.faqs?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: post.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      }
+    : null;
+
+  return {
+    title: `${post.title} | DEVSTUDIO`,
+    description: post.metaDescription,
+    keywords: `${post.focusKeyword}, thiết kế website, phát triển phần mềm, devstudio`,
+    type: "article",
+    jsonLd: faqSchema ? [articleSchema, faqSchema] : articleSchema,
+  };
+}
+
 export function SeoManager() {
   const location = useLocation();
 
   useEffect(() => {
     const dynamicProjectSeo = getProjectSeo(location.pathname);
-    const config = dynamicProjectSeo || SEO_BY_PATH[location.pathname] || FALLBACK_SEO;
+    const dynamicBlogSeo = getBlogSeo(location.pathname);
+    const config = dynamicBlogSeo || dynamicProjectSeo || SEO_BY_PATH[location.pathname] || FALLBACK_SEO;
 
     applySeo({
       title: config.title,

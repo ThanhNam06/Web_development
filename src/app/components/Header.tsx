@@ -10,6 +10,7 @@ export function Header() {
   const navLinks = [
     { name: "Trang chủ", path: "/" },
     { name: "Dự án", path: "/projects" },
+    { name: "Blog", path: "/blog" },
     { name: "Giới thiệu", path: "/about" },
   ];
 

@@ -2,74 +2,134 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://devstudio.art</loc>
-    <lastmod>2026-04-20T16:00:08.116Z</lastmod>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://devstudio.art/about</loc>
-    <lastmod>2026-04-20T16:00:08.116Z</lastmod>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://devstudio.art/projects</loc>
-    <lastmod>2026-04-20T16:00:08.116Z</lastmod>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://devstudio.art/contact</loc>
-    <lastmod>2026-04-20T16:00:08.116Z</lastmod>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://devstudio.art/blog</loc>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://devstudio.art/seo-plan-30-days</loc>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://devstudio.art/privacy</loc>
-    <lastmod>2026-04-20T16:00:08.116Z</lastmod>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://devstudio.art/terms</loc>
-    <lastmod>2026-04-20T16:00:08.116Z</lastmod>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://devstudio.art/projects/1</loc>
-    <lastmod>2026-04-20T16:00:08.116Z</lastmod>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://devstudio.art/projects/2</loc>
-    <lastmod>2026-04-20T16:00:08.116Z</lastmod>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://devstudio.art/projects/3</loc>
-    <lastmod>2026-04-20T16:00:08.116Z</lastmod>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://devstudio.art/projects/4</loc>
-    <lastmod>2026-04-20T16:00:08.116Z</lastmod>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://devstudio.art/projects/5</loc>
-    <lastmod>2026-04-20T16:00:08.116Z</lastmod>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://devstudio.art/projects/6</loc>
-    <lastmod>2026-04-20T16:00:08.116Z</lastmod>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://devstudio.art/blog/bao-gia-thiet-ke-website-doanh-nghiep</loc>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://devstudio.art/blog/quy-trinh-phat-trien-phan-mem-theo-yeu-cau</loc>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://devstudio.art/blog/website-chuan-seo-can-gi</loc>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://devstudio.art/blog/so-sanh-wordpress-va-nextjs</loc>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://devstudio.art/blog/checklist-website-doanh-nghiep</loc>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://devstudio.art/blog/core-web-vitals-cho-website-dich-vu</loc>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://devstudio.art/blog/cach-de-website-len-google-nhanh</loc>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://devstudio.art/blog/thiet-ke-landing-page-chuyen-doi-cao</loc>
+    <lastmod>2026-04-21T14:26:33.876Z</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
 </urlset>
